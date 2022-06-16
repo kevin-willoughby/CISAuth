@@ -1,0 +1,82 @@
+﻿@page
+@model CIS2Auth.Pages.CallbackModel
+@{
+	ViewData["Title"] = "Combined Callback page";
+}
+
+<br />
+<h2 class="text-info">CIS2 Combined Callback</h2>
+<br />
+<h4 class="text-info">
+	<span style="white-space: pre-line">@Model.HelperText</span>
+</h4>
+
+<div class="border container" style="padding: 30px;">
+	<form method="post">
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="AuthSettings.CombinedApiKey"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="AuthSettings.CombinedApiKey" class="form-control"/>
+			</div>
+			<span asp-validation-for="AuthSettings.CombinedApiKey" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="AuthSettings.CombinedApiSecret"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="AuthSettings.CombinedApiSecret" class="form-control"/>
+			</div>
+			<span asp-validation-for="AuthSettings.CombinedApiSecret" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="AuthSettings.AuthorizationSeparateUri"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="AuthSettings.AuthorizationSeparateUri" class="form-control"/>
+			</div>
+			<span asp-validation-for="AuthSettings.AuthorizationSeparateUri" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="AuthSettings.TokenCombinedUri"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="AuthSettings.TokenCombinedUri" class="form-control"/>
+			</div>
+			<span asp-validation-for="AuthSettings.TokenCombinedUri" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="CallbackData.Code"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="CallbackData.Code" class="form-control"/>
+			</div>
+			<span asp-validation-for="CallbackData.Code" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="CallbackData.State"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="CallbackData.State" class="form-control"/>
+			</div>
+			<span asp-validation-for="CallbackData.State" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-3 offset-3">
+				<button type="submit" class="btn btn-primary form-control">Get Token</button>
+			</div>
+		</div>
+	</form>
+</div>

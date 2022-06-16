@@ -1,0 +1,86 @@
+﻿@page
+@model CIS2Auth.Pages.IndexModel
+@{
+    ViewData["Title"] = "Combined Model";
+}
+
+<br />
+<h2 class="text-info">CIS2 Authorisation - Combined</h2>
+<br />
+<h4 class="text-info">@Model.HelperText</h4>
+<div class="border container" style="padding: 30px;">
+	<form method="post">
+		<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="AuthSettings.CombinedApiKey"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="AuthSettings.CombinedApiKey" class="form-control" />
+			</div>
+			<span asp-validation-for="AuthSettings.CombinedApiKey" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="AuthSettings.CombinedApiSecret"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="AuthSettings.CombinedApiSecret" class="form-control" />
+			</div>
+			<span asp-validation-for="AuthSettings.CombinedApiSecret" class="text-danger"></span>
+		</div>
+		
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="AuthSettings.AuthorizationCombinedUri"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="AuthSettings.AuthorizationCombinedUri" class="form-control" />
+			</div>
+			<span asp-validation-for="AuthSettings.AuthorizationCombinedUri" class="text-danger"></span>
+		</div>
+		
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="AuthSettings.TokenCombinedUri"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="AuthSettings.TokenCombinedUri" class="form-control" />
+			</div>
+			<span asp-validation-for="AuthSettings.TokenCombinedUri" class="text-danger"></span>
+		</div>
+		
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="AuthSettings.RedirectCombinedUri"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="AuthSettings.RedirectCombinedUri" class="form-control" />
+			</div>
+			<span asp-validation-for="AuthSettings.RedirectCombinedUri" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-3 offset-3">
+				<button type="submit" class="btn btn-primary form-control">Authenticate</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+@section Scripts
+{
+	<partial name="_ValidationScriptsPartial" />
+	<script type="text/javascript">
+	$(function () {
+		$('#MonitorDefinition_Method').change(function () {
+			var value = $(this).val();
+			if (value == 1) {
+				$('#RequestBody').show();
+			} else {
+				$('#RequestBody').hide();
+			}
+		});
+	});</script>
+}

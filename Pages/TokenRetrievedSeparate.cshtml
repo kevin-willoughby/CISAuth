@@ -1,0 +1,74 @@
+﻿@page
+@model CIS2Auth.Pages.TokenRetrievedSeparateModel
+@{
+	ViewData["Title"] = "Token Retrieved Separate";
+}
+<br />
+<h2 class="text-info">CIS2 Token Retrieved Separate</h2>
+<br />
+
+<div class="border container" style="padding: 30px;">
+	<form method="post">
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="Token.access_token"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="Token.access_token" class="form-control" value="@Model.Token.access_token"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="Token.refresh_token"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="Token.refresh_token" class="form-control" value="@Model.Token.refresh_token" />
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="Token.expires_in"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="Token.expires_in" class="form-control" value="@Model.Token.expires_in"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="Token.refresh_token_expires_in"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="Token.refresh_token_expires_in" class="form-control" value="@Model.Token.refresh_token_expires_in"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="Token.refresh_count"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="Token.refresh_count" class="form-control" value="@Model.Token.refresh_count"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="Token.token_type"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="Token.token_type" class="form-control" value="@Model.Token.token_type"/>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-3">
+				<label>Get User Info Response</label>
+			</div>
+			<div class="col-9">
+				<textarea asp-for="GetUserResponse" rows="5" class="form-control" value="@Model.GetUserResponse"></textarea>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-3 offset-3">
+				<button type="submit" asp-page-handler="GetUserInfo" class="btn btn-primary form-control">Get User Info</button>
+			</div>
+		</div>
+	</form>
+</div>
