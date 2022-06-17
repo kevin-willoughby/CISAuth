@@ -1,0 +1,96 @@
+﻿@page
+@model CIS2Auth.Pages.ApplicationAccessModel
+@{
+	ViewData["Title"] = "Application Access Model";
+}
+
+<br />
+<h2 class="text-info">CIS2 Authorisation - Application Access</h2>
+<br />
+<h4 class="text-info">@Model.HelperText</h4>
+<div class="border container" style="padding: 30px;">
+	<form method="post">
+		<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="AuthSettings.AppAccessApiKey"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="AuthSettings.AppAccessApiKey" class="form-control" />
+			</div>
+			<span asp-validation-for="AuthSettings.AppAccessApiKey" class="text-danger"></span>
+		</div>
+		
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="JWT"><p>JWT (Check out <a href="https://jwt.io/" target="_blank">jwt.io</a>)</p></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="JWT" class="form-control"/>
+			</div>
+			<span asp-validation-for="JWT" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="PrivateKey"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="PrivateKey" class="form-control"/>
+			</div>
+			<span asp-validation-for="PrivateKey" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="PublicKey"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="PublicKey" class="form-control"/>
+			</div>
+			<span asp-validation-for="PublicKey" class="text-danger"></span>
+		</div>
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="GetTokenPayload"></label>
+			</div>
+			<div class="col-9">
+				<textarea asp-for="GetTokenPayload" rows="5" class="form-control"></textarea>
+			</div>
+			<span asp-validation-for="Kid" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-3">
+				<label asp-for="AuthSettings.TokenApplicationAccessUri"></label>
+			</div>
+			<div class="col-9">
+				<input asp-for="AuthSettings.TokenApplicationAccessUri" class="form-control" />
+			</div>
+			<span asp-validation-for="AuthSettings.TokenApplicationAccessUri" class="text-danger"></span>
+		</div>
+		
+
+		<div class="form-group row">
+			<div class="col-3 offset-3">
+				<button type="submit" class="btn btn-primary form-control">Get Token</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+@section Scripts
+{
+	<partial name="_ValidationScriptsPartial" />
+	<script type="text/javascript">
+	$(function () {
+		$('#MonitorDefinition_Method').change(function () {
+			var value = $(this).val();
+			if (value == 1) {
+				$('#RequestBody').show();
+			} else {
+				$('#RequestBody').hide();
+			}
+		});
+	});</script>
+}

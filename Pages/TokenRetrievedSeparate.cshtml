@@ -17,14 +17,7 @@
 				<input asp-for="Token.access_token" class="form-control" value="@Model.Token.access_token"/>
 			</div>
 		</div>
-		<div class="form-group row">
-			<div class="col-3">
-				<label asp-for="Token.refresh_token"></label>
-			</div>
-			<div class="col-9">
-				<input asp-for="Token.refresh_token" class="form-control" value="@Model.Token.refresh_token" />
-			</div>
-		</div>
+		
 		<div class="form-group row">
 			<div class="col-3">
 				<label asp-for="Token.expires_in"></label>
@@ -33,22 +26,7 @@
 				<input asp-for="Token.expires_in" class="form-control" value="@Model.Token.expires_in"/>
 			</div>
 		</div>
-		<div class="form-group row">
-			<div class="col-3">
-				<label asp-for="Token.refresh_token_expires_in"></label>
-			</div>
-			<div class="col-9">
-				<input asp-for="Token.refresh_token_expires_in" class="form-control" value="@Model.Token.refresh_token_expires_in"/>
-			</div>
-		</div>
-		<div class="form-group row">
-			<div class="col-3">
-				<label asp-for="Token.refresh_count"></label>
-			</div>
-			<div class="col-9">
-				<input asp-for="Token.refresh_count" class="form-control" value="@Model.Token.refresh_count"/>
-			</div>
-		</div>
+		
 		<div class="form-group row">
 			<div class="col-3">
 				<label asp-for="Token.token_type"></label>

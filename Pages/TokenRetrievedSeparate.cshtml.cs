@@ -22,15 +22,12 @@ namespace CIS2Auth.Pages
         [BindProperty]
         public string GetUserResponse { get; set; }
 
-        public void OnGet(string accessToken, long expiresIn,string refreshToken,long refreshTokenExpiresIn,int refreshCount ,string tokenType, string getUserResponse)
+        public void OnGet(string accessToken, long expiresIn,string tokenType, string getUserResponse)
         {
             Token = new TokenResponse
             {
                 access_token = accessToken,
                 expires_in = expiresIn,
-                refresh_token = refreshToken,
-                refresh_token_expires_in = refreshTokenExpiresIn,
-                refresh_count = refreshCount,
                 token_type = tokenType
             };
             GetUserResponse = getUserResponse;
@@ -142,38 +139,6 @@ namespace CIS2Auth.Pages
             return Page();
         }
 
-        public async Task<IActionResult> OnPostRefreshToken()
-        {
-            //We now need to get the user info
-
-            //We use the same token uri but different parameters
-            var authSettings = new AuthSettingsViewModel();
-            client.DefaultRequestHeaders.Add("cache-control", "no-cache");
-            var dict = new Dictionary<string, string>()
-            {
-                {"grant_type", "refresh_token"},
-                {"client_id", authSettings.CombinedApiKey},
-                {"client_secret", authSettings.CombinedApiSecret},
-                {"refresh_token", Token.refresh_token}
-            };
-            var postData = new FormUrlEncodedContent(dict);
-            var request = new HttpRequestMessage(HttpMethod.Post, authSettings.TokenCombinedUri);
-            request.Content = postData;
-            var response = await client.SendAsync(request);
-            var responseString = await response.Content.ReadAsStringAsync();
-
-
-            var json = JsonConvert.DeserializeObject<TokenResponse>(responseString);
-
-            return RedirectToPage("TokenRetrieved", new
-            {
-                accessToken = json.access_token,
-                expiresIn = json.expires_in,
-                refreshToken = json.refresh_token,
-                refreshTokenExpiresIn = json.refresh_token_expires_in,
-                refreshCount = json.refresh_count,
-                tokenType = json.token_type
-            });
-        }
+        
     }
 }
