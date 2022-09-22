@@ -72,6 +72,13 @@ namespace CIS2Auth.Pages
             var request = new HttpRequestMessage(HttpMethod.Post, AuthSettings.TokenApplicationAccessUri);
             request.Content = postData;
 
+            string headers = string.Empty;
+
+            foreach(var x in request.Headers)
+            {
+                headers += "\n" + x.Key + " : " + x.Value;
+            }
+
             var response = await client.SendAsync(request);
             var responseString = await response.Content.ReadAsStringAsync();
 

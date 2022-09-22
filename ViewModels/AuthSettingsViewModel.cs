@@ -18,22 +18,28 @@ namespace CIS2Auth.ViewModels
         [Required]
         public string AppAccessApiKey { get; set; } = "ndeVkO78umbLNdF9GRvLJ9UuLnE18Jf1";
 
+        private const string SeparateRealSmartcardBase = "https://int.api.service.nhs.uk/oauth2/";
+
         private const string SandpitSeparateBase = "https://int.api.service.nhs.uk/oauth2-no-smartcard/";
         //private const string SandpitBase = "https://sandbox.api.service.nhs.uk/oauth2/";
         private const string SandpitCombinedBase = "https://sandbox.api.service.nhs.uk/oauth2/";
 
         private const string SandpitAppAccessBase = "https://int.api.service.nhs.uk/oauth2/";
+        //private const string SandpitAppAccessBase = "https://sandbox.api.service.nhs.uk/oauth2/";
 
         //
         [Required]
         public string AuthorizationSeparateUri { get; set; } = SandpitSeparateBase + "authorize";
         [Required]
         public string TokenSeparateUri { get; set; } = SandpitSeparateBase + "token";
+
+        [Required]
+        public string AuthorizationRealSmartcardSeparateUri { get; set; } = SeparateRealSmartcardBase + "authorize";
+
         [Required]
         public string UserInfoSeparateUri { get; set; } = "https://int.api.service.nhs.uk/oauth2/userinfo";
         [Required]
         public string RedirectSeparateUri { get; set; } = "https://hdsdev.resip.co.uk/CIS2/SeparateCallback";
-
 
         [Required]
         public string AuthorizationCombinedUri { get; set; } = SandpitCombinedBase + "authorize";

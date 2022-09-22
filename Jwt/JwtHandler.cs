@@ -48,8 +48,9 @@ namespace CIS2Auth.Jwt
 
 
             var claimList = new List<Claim>();
-            claimList.Add(new Claim("jti", Guid.NewGuid().ToString()));
             claimList.Add(new Claim(JwtClaimTypes.Subject, _clientId));
+            claimList.Add(new Claim("jti", Guid.NewGuid().ToString()));
+            
 
 
             var token = new JwtSecurityToken(_clientId,

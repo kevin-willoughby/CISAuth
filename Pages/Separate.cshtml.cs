@@ -23,7 +23,7 @@ namespace CIS2Auth.Pages
         }
 
         [BindProperty]
-        public string HelperText => $"When authenticate is pressed we will redirect to {AuthSettings.AuthorizationSeparateUri}?clientid={AuthSettings.SeparateApiKey}&redirecturi={AuthSettings.RedirectSeparateUri}&response_type=code&state=random";
+        public string HelperText => $"When authenticate is pressed we will redirect to {AuthSettings.AuthorizationSeparateUri}?client_id={AuthSettings.SeparateApiKey}&redirect_uri={AuthSettings.RedirectSeparateUri}&response_type=code&state=random";
 
 
         [BindProperty]
